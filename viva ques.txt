@@ -1,0 +1,405 @@
+BASIC DBMS QUESTIONS
+1. What is DBMS?
+
+DBMS stands for Database Management System. It is used to store, manage and retrieve data.
+
+2. What is database?
+
+A database is an organized collection of data.
+
+3. What is table?
+
+A table stores data in rows and columns.
+
+4. What is row?
+
+A row represents one record.
+
+5. What is column?
+
+A column represents one attribute or field.
+
+KEY QUESTIONS
+6. What is Primary Key?
+
+Primary key uniquely identifies each record in a table.
+
+Example:
+StudentID.
+
+7. Properties of Primary Key
+Unique
+Cannot be NULL
+8. What is Foreign Key?
+
+Foreign key creates relationship between two tables.
+
+9. Why use Foreign Key?
+
+To maintain referential integrity.
+
+10. Difference between Primary Key and Foreign Key
+Primary Key	Foreign Key
+Unique	Can repeat
+Cannot be NULL	Can be NULL
+Identifies record	Connects tables
+SQL COMMAND QUESTIONS
+11. What is DDL?
+
+Data Definition Language.
+
+Commands:
+
+CREATE
+ALTER
+DROP
+TRUNCATE
+12. What is DML?
+
+Data Manipulation Language.
+
+Commands:
+
+INSERT
+UPDATE
+DELETE
+13. What is DCL?
+
+Data Control Language.
+
+Commands:
+
+GRANT
+REVOKE
+14. What is TCL?
+
+Transaction Control Language.
+
+Commands:
+
+COMMIT
+ROLLBACK
+SAVEPOINT
+QUERY QUESTIONS
+15. What is SELECT?
+
+Used to retrieve data from table.
+
+16. What is WHERE clause?
+
+Used to filter records.
+
+17. What is ORDER BY?
+
+Used to sort records.
+
+18. What is DESC?
+
+Descending order.
+
+19. Difference between DELETE and DROP
+DELETE	DROP
+Removes rows	Removes entire table
+WHERE possible	WHERE not possible
+20. Difference between DROP and TRUNCATE
+DROP	TRUNCATE
+Deletes table	Deletes all rows
+Structure removed	Structure remains
+AGGREGATE FUNCTION QUESTIONS
+21. What are aggregate functions?
+
+Functions that perform calculations on multiple rows.
+
+Examples:
+
+SUM()
+AVG()
+COUNT()
+MAX()
+MIN()
+22. What does SUM() do?
+
+Calculates total.
+
+23. What does COUNT(*) do?
+
+Counts total rows.
+
+24. What does MAX() do?
+
+Returns highest value.
+
+25. What does MIN() do?
+
+Returns smallest value.
+
+GROUP BY QUESTIONS
+26. What is GROUP BY?
+
+GROUP BY groups similar rows together.
+
+27. Why use GROUP BY?
+
+To apply aggregate functions on grouped data.
+
+28. Difference between WHERE and HAVING
+WHERE	HAVING
+Filters rows	Filters groups
+Used before GROUP BY	Used after GROUP BY
+JOIN QUESTIONS
+29. What is JOIN?
+
+JOIN combines records from multiple tables.
+
+30. Types of JOIN
+INNER JOIN
+LEFT JOIN
+RIGHT JOIN
+FULL JOIN
+31. What is INNER JOIN?
+
+Returns matching records from both tables.
+
+32. What is LEFT JOIN?
+
+Returns all records from left table and matching records from right table.
+
+33. Difference between INNER JOIN and LEFT JOIN
+INNER JOIN	LEFT JOIN
+Only matching rows	All left table rows
+VIEW QUESTIONS
+34. What is View?
+
+View is a virtual table based on query.
+
+35. Why use View?
+Security
+Simplicity
+Hide complex queries
+36. Can we insert into View?
+
+Yes, in simple views.
+
+TRIGGER QUESTIONS
+37. What is Trigger?
+
+Trigger is automatically executed when event occurs.
+
+38. Types of Trigger
+BEFORE
+AFTER
+39. What is BEFORE Trigger?
+
+Executes before operation.
+
+40. What is AFTER Trigger?
+
+Executes after operation.
+
+41. What are OLD and NEW in Trigger?
+OLD → previous value
+NEW → updated value
+42. Why use Trigger?
+
+For auditing and automatic actions.
+
+PROCEDURE QUESTIONS
+43. What is Procedure?
+
+Procedure is stored SQL program.
+
+44. Why use Procedure?
+Reusability
+Reduce code repetition
+Better performance
+45. How to call Procedure?
+CALL ProcedureName();
+FUNCTION QUESTIONS
+46. What is Function?
+
+Function returns a value.
+
+47. Difference between Procedure and Function
+Procedure	Function
+May not return value	Always returns value
+Called using CALL	Used in SELECT
+48. What is RETURN in Function?
+
+RETURN sends value back.
+
+LOOP QUESTIONS
+49. What is LOOP?
+
+Used for repeated execution.
+
+50. Types of Loops
+FOR LOOP
+WHILE LOOP
+LOOP
+51. What is ITERATE?
+
+Used to skip current iteration.
+
+52. What is LEAVE?
+
+Used to exit loop.
+
+BACKUP & RESTORE QUESTIONS
+53. What is Backup?
+
+Copy of database stored for recovery.
+
+54. Why do we take Backup?
+
+To recover lost or corrupted data.
+
+55. What is mysqldump?
+
+Utility used to take MySQL backup.
+
+56. Where is mysqldump executed?
+
+In CMD or terminal.
+
+57. What file is created after backup?
+
+.sql file.
+
+58. What is Restore?
+
+Recovering database from backup file.
+
+59. Command for Backup
+mysqldump -u system -p collegeDB > college_backup.sql
+60. Command for Restore
+mysql -u system -p collegeDB < college_backup.sql
+61. How to verify backup success?
+
+Check .sql file using:
+
+dir
+62. How to verify restore success?
+SELECT * FROM Student;
+PRACTICAL EXECUTION QUESTIONS
+63. Where do we run CREATE TABLE?
+
+Inside MySQL.
+
+64. Where do we run mysqldump?
+
+In CMD/terminal.
+
+65. Why use DELIMITER?
+
+To define procedure/function/trigger blocks.
+
+66. Why use PRIMARY KEY?
+
+To uniquely identify records.
+
+67. Why use FOREIGN KEY?
+
+To connect tables.
+
+68. Why use VARCHAR?
+
+To store variable length text.
+
+69. Difference between CHAR and VARCHAR
+CHAR	VARCHAR
+Fixed length	Variable length
+70. What is NULL?
+
+Missing or unknown value.
+
+OUTPUT QUESTIONS
+71. Output of COUNT(*)
+SELECT COUNT(*) FROM Student;
+
+Answer:
+Returns total rows.
+
+72. Output of SUM()
+SELECT SUM(Salary) FROM Employee;
+
+Answer:
+Returns total salary.
+
+73. Output of MAX()
+SELECT MAX(Marks) FROM Student;
+
+Answer:
+Returns highest marks.
+
+74. Output of MIN()
+SELECT MIN(Marks) FROM Student;
+
+Answer:
+Returns lowest marks.
+
+MOST DANGEROUS EXTERNAL QUESTIONS
+75. Why do we use normalization?
+
+To reduce redundancy.
+
+76. What is redundancy?
+
+Duplicate data.
+
+77. What is candidate key?
+
+Attribute that can uniquely identify record.
+
+78. What is super key?
+
+Set of attributes that uniquely identify record.
+
+79. What is referential integrity?
+
+Maintaining valid relationship between tables.
+
+80. What happens if foreign key value does not exist?
+
+Insertion fails.
+
+LAST MINUTE SURVIVAL QUESTIONS
+81. Syntax order of SELECT query
+SELECT columns
+FROM table
+WHERE condition
+GROUP BY column
+ORDER BY column;
+82. What is SQL?
+
+Structured Query Language.
+
+83. Why use SQL?
+
+To communicate with database.
+
+84. What is MySQL?
+
+Relational database management system.
+
+85. Difference between SQL and MySQL
+SQL	MySQL
+Language	Software
+IMPORTANT PRACTICAL QUESTIONS
+
+External may say:
+
+“Write query to”
+Create table
+Insert records
+Apply primary key
+Apply foreign key
+Use GROUP BY
+Use JOIN
+Create trigger
+Create procedure
+Create function
+Find MAX/MIN
+Count records
+Sort data
+Use aggregate functions
+Create backup
