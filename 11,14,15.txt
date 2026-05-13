@@ -1,0 +1,662 @@
+For 15th practical (Restore Database), you FIRST need a backup file.
+Without backup file, restore cannot happen.
+
+So actual flow is:
+
+REAL FLOW OF RESTORE PRACTICAL
+
+Create Database
+→ Create Table
+→ Insert Records
+→ Take Backup
+→ Drop Database
+→ Restore Database
+→ Check Restored Data
+
+
+That is the proper logic.
+
+SIMPLE COMPLETE FLOW OF 15
+STEP 1 — Open CMD
+
+cmd
+
+STEP 2 — Go to MySQL bin Folder
+
+cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+STEP 3 — Open MySQL
+
+mysql -u system -p
+
+
+Password:
+
+
+root
+
+STEP 4 — Create Database
+
+CREATE DATABASE collegeDB;
+
+STEP 5 — Use Database
+
+USE collegeDB;
+
+STEP 6 — Create Table
+
+CREATE TABLE Student(
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50)
+);
+
+STEP 7 — Insert Records
+
+INSERT INTO Student VALUES
+(1,'Tanmay'),
+(2,'Rahul');
+
+STEP 8 — Display Table
+
+SELECT * FROM Student;
+
+
+You will see records.
+
+STEP 9 — Exit MySQL
+
+EXIT;
+
+STEP 10 — Take Backup
+
+mysqldump -u system -p collegeDB > college_backup.sql
+
+
+Password:
+
+
+root
+
+
+Now backup file is created.
+
+STEP 11 — Open MySQL Again
+
+mysql -u system -p
+
+
+Password:
+
+
+root
+
+STEP 12 — Drop Database
+
+DROP DATABASE collegeDB;
+
+
+Now database deleted.
+
+STEP 13 — Create Empty Database Again
+
+CREATE DATABASE collegeDB;
+
+STEP 14 — Exit MySQL
+
+EXIT;
+
+STEP 15 — Restore Database
+
+mysql -u system -p collegeDB < college_backup.sql
+
+
+Password:
+
+
+root
+
+
+Now backup restored.
+
+STEP 16 — Open MySQL Again
+
+mysql -u system -p
+
+
+Password:
+
+
+root
+
+STEP 17 — Use Database
+
+USE collegeDB;
+
+STEP 18 — Check Restored Table
+
+SELECT * FROM Student;
+
+
+You will again see:
+
+
+1  Tanmay
+2  Rahul
+
+
+That proves restore successful.
+
+WHY DROP DATABASE?
+
+External may ask this.
+
+Answer:
+
+“To check whether backup can recover deleted database data.”
+
+Very good viva answer.
+
+
+
+
+
+
+
+
+
+11. Database Backup — Complete Practical
+Question
+
+Write the command to take backup of MySQL database collegeDB using mysqldump.
+
+Real Flow of Practical
+
+Open CMD
+→ Open MySQL
+→ Create Database
+→ Use Database
+→ Create Table
+→ Insert Records
+→ Display Table
+→ Exit MySQL
+→ Run mysqldump command
+→ Backup file created
+
+Complete Demonstration
+STEP 1 — Open CMD
+
+Press:
+
+
+Windows + R
+
+
+Type:
+
+
+cmd
+
+
+Press Enter.
+
+STEP 2 — Go to MySQL bin Folder
+
+cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+STEP 3 — Open MySQL
+
+mysql -u system -p
+
+
+Press Enter.
+
+STEP 4 — Enter Password
+
+root
+
+STEP 5 — Create Database
+
+CREATE DATABASE collegeDB;
+
+STEP 6 — Use Database
+
+USE collegeDB;
+
+STEP 7 — Create Table
+
+CREATE TABLE Student(
+    StudentID INT PRIMARY KEY,
+    Name VARCHAR(50)
+);
+
+STEP 8 — Insert Records
+
+INSERT INTO Student VALUES
+(1,'Tanmay'),
+(2,'Rahul');
+
+STEP 9 — Display Table
+
+SELECT * FROM Student;
+
+
+Output:
+
+
++-----------+--------+
+| StudentID | Name   |
++-----------+--------+
+| 1         | Tanmay |
+| 2         | Rahul  |
++-----------+--------+
+
+STEP 10 — Exit MySQL
+
+EXIT;
+
+
+Now you are back in CMD.
+
+STEP 11 — Take Backup
+
+mysqldump -u system -p collegeDB > college_backup.sql
+
+
+Press Enter.
+
+STEP 12 — Enter Password
+
+root
+
+STEP 13 — Backup File Created
+
+File created:
+
+
+college_backup.sql
+
+
+inside current folder.
+
+STEP 14 — Verify Backup File (Optional)
+
+You can type:
+
+
+dir
+
+
+You will see:
+
+
+college_backup.sql
+
+
+That confirms backup successful.
+
+Viva Questions and Answers
+Q1. What is mysqldump?
+
+Answer:
+mysqldump is a utility used to take backup of MySQL database.
+
+Q2. Where is mysqldump executed?
+
+Answer:
+In CMD or terminal, not inside MySQL.
+
+Q3. What is created after backup?
+
+Answer:
+A .sql backup file is created.
+
+Q4. How do you know backup succeeded?
+
+Answer:
+Backup .sql file gets created in current folder.
+
+MOST IMPORTANT THING
+
+This command:
+
+
+mysqldump -u system -p collegeDB > college_backup.sql
+
+
+must be run in CMD.
+
+NOT inside:
+
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+14. Backup studentDB — Complete Practical
+Question
+
+Write the command to take backup of MySQL database studentDB using mysqldump.
+
+Real Flow of Practical
+
+Open CMD
+→ Open MySQL
+→ Create Database
+→ Use Database
+→ Create Table
+→ Insert Records
+→ Display Table
+→ Exit MySQL
+→ Run mysqldump command
+→ Backup file created
+
+Complete Demonstration
+STEP 1 — Open CMD
+
+Press:
+
+
+Windows + R
+
+
+Type:
+
+
+cmd
+
+
+Press Enter.
+
+STEP 2 — Go to MySQL bin Folder
+
+cd C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+STEP 3 — Open MySQL
+
+mysql -u system -p
+
+
+Press Enter.
+
+STEP 4 — Enter Password
+
+root
+
+STEP 5 — Create Database
+
+CREATE DATABASE studentDB;
+
+STEP 6 — Use Database
+
+USE studentDB;
+
+STEP 7 — Create Table
+
+CREATE TABLE Student(
+    RollNo INT PRIMARY KEY,
+    Name VARCHAR(50)
+);
+
+STEP 8 — Insert Records
+
+INSERT INTO Student VALUES
+(1,'Tanmay'),
+(2,'Rahul');
+
+STEP 9 — Display Table
+
+SELECT * FROM Student;
+
+
+Output:
+
+
++--------+--------+
+| RollNo | Name   |
++--------+--------+
+| 1      | Tanmay |
+| 2      | Rahul  |
++--------+--------+
+
+STEP 10 — Exit MySQL
+
+EXIT;
+
+
+Now you are back in CMD.
+
+STEP 11 — Take Backup
+
+mysqldump -u system -p studentDB > student_backup.sql
+
+
+Press Enter.
+
+STEP 12 — Enter Password
+
+root
+
+STEP 13 — Backup File Created
+
+File created:
+
+
+student_backup.sql
+
+
+inside current folder.
+
+STEP 14 — Verify Backup File (Optional)
+
+Type:
+
+
+dir
+
+
+You will see:
+
+
+student_backup.sql
+
+
+That confirms backup successful.
+
+Viva Questions and Answers
+Q1. What is mysqldump?
+
+Answer:
+mysqldump is used to take backup of MySQL database.
+
+Q2. Where is mysqldump executed?
+
+Answer:
+In CMD or terminal.
+
+Q3. What file is created after backup?
+
+Answer:
+A .sql backup file.
+
+Q4. Why do we take backup?
+
+Answer:
+To recover data if database gets deleted or corrupted.
+
+IMPORTANT
+
+This command:
+
+
+mysqldump -u system -p studentDB > student_backup.sql
+
+
+must be executed in CMD.
+
+NOT inside:
+
+
+mysql>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+YES. Exactly.
+If your MySQL application already opens directly into CMD-like MySQL terminal, then you MOST LIKELY do NOT need:
+
+
+cd C:\Program Files\MySQL...
+
+
+That step is only for people using normal CMD separately.
+
+Your flow is simpler.
+
+YOUR ACTUAL FLOW
+STEP 1
+
+Open MySQL application.
+
+It asks:
+
+
+Enter username:
+
+
+You type:
+
+
+system
+
+
+Then password:
+
+
+root
+
+STEP 2
+
+Now you are inside MySQL:
+
+
+mysql>
+
+
+Now perform queries:
+
+CREATE DATABASE
+USE
+CREATE TABLE
+INSERT
+SELECT
+STEP 3
+
+Then type:
+
+
+EXIT;
+
+
+Now you return to normal CMD.
+
+STEP 4
+
+NOW run backup command directly:
+
+For 11
+
+mysqldump -u system -p collegeDB > college_backup.sql
+
+
+OR
+
+For 14
+
+mysqldump -u system -p studentDB > student_backup.sql
+
+STEP 5
+
+Enter password:
+
+
+root
+
+STEP 6
+
+Now type:
+
+
+dir
+
+
+You will see:
+
+
+college_backup.sql
+
+
+or
+
+
+student_backup.sql
+
+
+That means DONE.
+
+IMPORTANT CORRECTION
+
+You said:
+
+“after restoring I type dir”
+
+Actually:
+
+dir is mainly for checking BACKUP FILE
+
+Not restore.
+
+RESTORE FLOW DIFFERENT
+
+For restore:
+
+Exit MySQL
+Run:
+
+mysql -u system -p collegeDB < college_backup.sql
+
+Enter password
+Open MySQL again
+Run:
+
+USE collegeDB;
+
+SELECT * FROM Student;
+
+
+to verify restored data.
+
+FINAL SIMPLE UNDERSTANDING
+Task	After EXIT do what?
+Backup	Run mysqldump
+Check backup file	Run dir
+Restore	Run mysql < backup.sql
+Check restored data	Open MySQL again and use SELECT *
